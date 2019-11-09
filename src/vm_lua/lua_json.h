@@ -22,8 +22,8 @@ void table2json(lua_State* L, int table_index, json& result, int maxLevel=5);
 //from json to lua table
 void json2table(const json& jobject, lua_State* L, int table_index);
 
-//push json in lua stack, return the stack index
-int pushlua(const json& value, lua_State* L);
+//push json in lua stack
+void pushlua(const json& value, lua_State* L);
 
 //get json from lua stack
 void getjson(lua_State* L, int index, json& result);

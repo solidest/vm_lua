@@ -259,9 +259,9 @@ void json2table(const json& jobject, lua_State* L, int table_index) {
     }
 }
 
-//push json in lua stack, return the stack index
-int pushlua(const json& value, lua_State* L) {
-    return -1;
+//push json in lua stack
+void pushjson(const json& value, lua_State* L) {
+    
 }
 
 //get json from lua stack
