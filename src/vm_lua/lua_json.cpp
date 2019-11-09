@@ -130,9 +130,9 @@ void table2json(lua_State* L, int table_index, json& result, int maxLevel) {
 }
 
 
-static void _array2table(json& arr, lua_State* L, int table_idx) {
+static void _array2table(const json& arr, lua_State* L, int table_idx) {
     int lua_tid = 1;
-    for (json::iterator it = arr.begin(); it != arr.end(); ++it) {
+    for (auto it=arr.cbegin(); it!= arr.cend(); ++it) {
 
         auto v = (*it);
         auto t = v.type();
@@ -199,8 +199,8 @@ static void _array2table(json& arr, lua_State* L, int table_idx) {
     }
 }
 
-void json2table(json& jobject, lua_State* L, int table_index) {
-    for (json::iterator it = jobject.begin(); it != jobject.end(); ++it) {
+void json2table(const json& jobject, lua_State* L, int table_index) {
+    for (auto it = jobject.cbegin(); it != jobject.cend(); ++it) {
         auto k = it.key().c_str();
         auto v = it.value();
         auto t = v.type();
@@ -257,6 +257,16 @@ void json2table(json& jobject, lua_State* L, int table_index) {
             break;
         }
     }
+}
+
+//push json in lua stack, return the stack index
+int pushlua(const json& value, lua_State* L) {
+    return -1;
+}
+
+//get json from lua stack
+void getjson(lua_State* L, int index, json& result) {
+
 }
 
 

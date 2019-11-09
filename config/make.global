@@ -8,7 +8,7 @@ MAKEFLAG := -s --no-print-directory
 CC := g++
 
 # include path
-INCLUDE_PATH := /home/pi/cpt/lua-5.3.5/install/include
+INCLUDE_PATH := /home/pi/vm_lua/lua-5.3.5/install/include
 
 # compile flags
 CCFLAG := -g -I$(INCLUDE_PATH)
